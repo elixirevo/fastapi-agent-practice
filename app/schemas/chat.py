@@ -6,6 +6,7 @@ class Message(BaseModel):
     content: str
 
 class ChatRequest(BaseModel):
+    user_id: str
     messages: List[Message]
 
 class ChatResponse(BaseModel):

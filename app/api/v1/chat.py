@@ -22,7 +22,10 @@ async def chat_endpoint(request: ChatRequest):
                 raise HTTPException(status_code=400, detail=f"Unsupported role: {msg.role}")
         
         # Invoke LangGraph agent
-        result = await agent_executor.ainvoke({"messages": langchain_messages})
+        result = await agent_executor.ainvoke({
+            "messages": langchain_messages,
+            "user_id": request.user_id
+        })
         
         # Get the last AI message
         last_message = result["messages"][-1]
