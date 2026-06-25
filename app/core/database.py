@@ -4,6 +4,7 @@ from contextlib import asynccontextmanager
 
 # 모델들을 미리 로드하여 SQLModel.metadata 에 등록되게 합니다.
 from app.models.user_interest import UserInterest
+from app.models.user import User
 
 DATABASE_URL = "sqlite+aiosqlite:///bamsae.db"
 
