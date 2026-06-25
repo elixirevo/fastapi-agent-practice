@@ -5,7 +5,7 @@ from langgraph.graph import START, StateGraph
 from langgraph.graph.message import add_messages
 from langgraph.prebuilt import ToolNode, tools_condition
 
-from app.core.tools import search_tavily
+from app.core.tools import search_tavily, save_user_interest, get_user_interests
 
 
 class State(TypedDict):
@@ -14,7 +14,7 @@ class State(TypedDict):
 
 def get_agent_executor():
     # Define tools
-    tools = [search_tavily]
+    tools = [search_tavily, save_user_interest, get_user_interests]
     tool_node = ToolNode(tools)
 
     # Initialize model and bind tools
